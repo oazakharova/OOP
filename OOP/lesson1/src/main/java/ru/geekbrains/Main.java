@@ -18,8 +18,8 @@ public class Main {
         System.out.println(product3.displayInfo());
 
         //product3.setPrice(-50.5);
-       //product3.name = "____";
-       // product3.price = -50.5;
+        //product3.name = "____";
+        // product3.price = -50.5;
 
         System.out.println(product3.displayInfo());
 
@@ -33,26 +33,35 @@ public class Main {
 
         Product bottleOfMilk1 = new BottleOfMilk("Молоко", 100, 2, 10);
 
+        Product chocolate1 = new Chocolate("Шоколад1", 80, 200);
+
         List<Product> products = new ArrayList<>();
         products.add(bottleOfWater2);
         products.add(bottleOfMilk1);
         products.add(bottleOfWater3);
         products.add(bottleOfWater4);
         products.add(bottleOfWater5);
+        products.add(chocolate1);
 
+        VendingMachine machine = new VendingMachine(products);
 
-        BottleOfWaterVendingMachine machine = new BottleOfWaterVendingMachine(products);
-
-        BottleOfWater bottleOfWaterRes =  machine.getBottleOfWater("Вода3", 3);
-        if (bottleOfWaterRes != null){
+        BottleOfWater bottleOfWaterRes = machine.getBottleOfWater("Вода3", 3);
+        if (bottleOfWaterRes != null) {
             System.out.println("Вы купили: ");
             System.out.println(bottleOfWaterRes.displayInfo());
-        }
-        else {
+        } else {
             System.out.println("Такой бутылки с водой нет в автомате.");
         }
 
+
+        Chocolate chocolateRes = machine.getChocolate("Шоколад1", 200);
+        if (chocolateRes != null) {
+            System.out.println("Вы купили: ");
+            System.out.println(chocolateRes.displayInfo());
+        } else {
+            System.out.println("Такого шоколада нет в автомате.");
+        }
     }
-
-
 }
+
+
